@@ -6,7 +6,7 @@ Dir.glob(Dir.getwd + "/test/**/*test.rb").each do |filename|
   puts "* Reading file: #{filename}"
   contents = File.read(filename)
 
-  if contents =~ /def.+test_truth/
+  if contents =~ /(def.+test_truth|test\s\"the truth\")/
     puts "** File: #{filename} is empty.  Deleting it in git."
     `git rm #{filename}`
   end
